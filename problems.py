@@ -201,3 +201,27 @@ def findMin(self, nums: List[int]) -> int:
                 if nums[0] > nums[middle]:
                     right = middle-1
         return nums[0]
+
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+def reverseList(self, head: ListNode) -> ListNode:
+    """
+    edge cases:
+    empty linkedlist => return None
+    one elemnt => return that element
+    does not matter what the value in the linkedlist hold, duplicate are okay too.
+    linkedlist has a node, which has val and next
+    we use two pointers, one point at the curr, one point at next node.
+
+"""
+    prev, curr = None, head
+    while curr is not None:
+        temp = curr.next
+        curr.next = prev
+        prev = curr
+        curr = temp
+    return prev
