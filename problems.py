@@ -92,3 +92,112 @@ def maxSubArray(self, nums: List[int]) -> int:
             if currmax > finalmax:
                 finalmax = currmax
         return finalmax
+
+def maxProduct(self, nums: List[int]) -> int:
+    pre_max = nums[0]
+    pre_min = nums[0]
+    curr_max = nums[0]
+    curr_min = nums[0]
+    ans = nums[0]
+
+    #run the for loop from value index 1 to the end
+    for i in nums[1:]:
+        #compare it with max(blablabla, i) => this is to satisfy the continigoue subarray requirement
+        curr_max = max(max(pre_max*i, pre_min*i), i)
+        curr_min = min(min(pre_max*i, pre_min*i), i)
+        pre_max = curr_max
+        pre_min = curr_min
+        ans = max(ans, curr_max)
+    return ans
+
+
+    """
+    thought process => brainstorm the problem, don't jump straight into code, the more brainstorm, the more ideas will come across our mind.
+    step 0 (edge cases):
+    nums = [2,3,-2,4]
+    2 * 3 = 6
+    6 * -2 = -12
+    thinking of dynamic programming where we keep track of the current value and update it whenever nessescary.
+    we need temp variable to hold the current mul:
+    currmul: 2 * 3 = 6
+    6 * -2 = -12
+    -12 * 4 = - 48
+    another variable to keep highestpositive, and lowestnegative
+    if currmul< 0:
+        lowestnegative = currmul
+    if currmul >= 0:
+        highestpositive = currmul
+
+    return highestpositive
+
+
+    observation:
+    currmul = 6 > -12, keep 6 => how do we do this?
+    solve:
+    [] =>
+    [one element] =>
+    [two elements] =>
+    [all positive] => return the whole array
+    [-1 , -2, -2, -6] => check all elements
+    [1, 2, 5, 0, -1, 4, -6]
+    final_array = [] => has to be non empty => insert it with some temporary => which number should we choose => the first element in the array ofc
+    final_array.append(nums[0])
+    use loop to iterate through the entire array => linear time O(N), can't have better time complexity than this because every elements needed to be access in this case
+    for i in range(len(nums)):
+        #at every itertion, what do we do?
+    Time complexity:
+    Space cpmplexity:
+    """
+
+def findMin(self, nums: List[int]) -> int:
+    """
+    step 0: check for edge cases:
+        [] or [one element] => return -1
+    given: sorted increasing order [-5, -3 , 0, 4, 7, 30]
+    rotated between 1 and n time
+    unique elements => does not matter negative, zero, or positive
+    [5, 4, 6, 1, 2 ] => what to do with this case??? not gonna happends because given
+
+    find pivot point maybe???
+    use BST to find pivot???
+    [3,4,5,1,2]
+    search until we find the pivot index,
+    the elemnt at that pivot index is the minimum, remember to check for outofounce array index too****
+    how to find the pivot=> we search => linear => search every element until we find nums[i-1] > nums[i] and nums[i] < nums[i+1] => return nums[i] as pivot point(make sure i+1 is not outofbounce of the array)
+    time: O(N) for linear search
+    use binary search for better time O(logN)
+    space: O(1) no additional array needed
+    because sorted array so we can use BST, otherwise can't!!
+    recursively or iteratively => recursively
+    steps for bst:
+    find the middle index, check if middle index satisfy nums[i-1] > nums[i] and nums[i] < nums[i+1], if it is then return nums[middle], else go recursively call the function again, passing middle-1 as the most left element, and do the same thing with middle+1 as the most right element
+    base case for recursive: while left < right
+    if greater than target,
+    4,5,6,7,8, 9, 10, 11, 0,1,2
+    middle is 9, how do we know which way left or right to go?
+    look at left most and right most, 4 < 9 => the left side is already in order and not rotated, right side suppose to be greater than 9 but we see 2 => check right side
+
+    """
+    if len(nums) == 0:
+        return None
+    elif len(nums) == 1:
+        return nums[0]
+    elif len(nums) ==2:
+        if nums[0] <nums[1]:
+            return nums[0]
+        return nums[1]
+    else:
+        #[1, 2, 3, 4, 5,]
+        left, right = 0, len(nums)-1
+        while left < right:
+            middle = int(left + ((right-left)/2))
+            if nums[middle] > nums[middle-1] and nums[middle+1] < nums[middle]:
+                return nums[middle+1]
+            if nums[middle] < nums[middle-1] and nums[middle] < nums[middle+1]:
+                return nums[middle]
+            else:
+                if nums[0] < nums[middle]:
+                    left = middle+1
+                if nums[0] > nums[middle]:
+                    right = middle-1
+        return nums[0]
