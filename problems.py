@@ -272,3 +272,69 @@ def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         l2 = l2.next
         curr = curr.next
     return dummy.next
+
+
+def isAnagram(self, s: str, t: str) -> bool:
+    """
+    first loop
+    if we first see the key, mark it with 1
+    second loop
+    run the t string, if the char in t existed in counter, minutes 1 from their value
+
+    finally check the status of the counter dictionary see if any value is still 1 => return false else return true
+
+
+    counter  key value
+              a    1
+
+
+
+    """
+
+    """
+    a_string = "cba"
+sorted_characters = sorted(a_string) Sort string alphabetically and return list.
+a_string = "". join(sorted_characters) Combine list elements into one string.
+print(a_string)
+    """
+    if len(s) != len(t):
+        return False
+    else:
+        s_sorted_character = sorted(s)
+        t_sorted_character = sorted(t)
+        print(s_sorted_character)
+        print(t_sorted_character)
+        for i in range(len(s_sorted_character)):
+            if s_sorted_character[i] != t_sorted_character[i]:
+                return False
+        return True
+
+
+def isAnagram(self, s: str, t: str) -> bool:
+    """
+    first loop
+    if we first see the key, mark it with 1
+    second loop
+    run the t string, if the char in t existed in counter, minutes 1 from their value
+
+    finally check the status of the counter dictionary see if any value is still 1 => return false else return true
+
+
+    counter  key value
+              a    1
+
+
+
+    """
+
+    """
+    a_string = "cba"
+sorted_characters = sorted(a_string) Sort string alphabetically and return list.
+a_string = "". join(sorted_characters) Combine list elements into one string.
+print(a_string)
+    """
+    if len(s) != len(t):
+        return False
+    else:
+        counter =[0]* 26
+        print(counter)
