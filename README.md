@@ -1,4 +1,4 @@
-# Leetcode-practices-for-Job-Interviewssssssss
+# Leetcode-practices-for-Job-Interviews
 Leetcode practices for Job Interviewssssssss
 
 Notes:
