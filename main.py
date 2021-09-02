@@ -126,6 +126,46 @@ def lca(root):
 							result.append(arr[i], arr[j], arr[k])
 
 
+edge
+cases: duplicate, all
+the
+same
+number, negative
+number
+okay?
+
+def maxSubArray(nums):
+	currmax, final_max = nums[0], [nums0]
+	for i in range(1, len(nums)):
+		currmax = max(currmax, currmax + nums[i], num[i])
+		final_max = max(final_max, currmax)
+	return final_max
+
+
+def twosum(self, nums):
+	nums.sort()
+	left, right = 0, len(nums)
+	temp_sum = 0
+	while left < right:
+		if nums[left] + nums[right] > target:
+			right -= 1
+		if nums[left] + nums[right] < target:
+			left += 1
+		else:
+			return [left, right]
+	return -1
+
+
+def threesum(self, nums):
+	result = []
+	for i in range(len(nums)):
+		for j in range(i + 1, len(nums)):
+			total_two_sum = nums[i] + nums[j]
+			total_two_sum *= -1
+			if total_two_sum in nums:
+				result.append([nums[i], nums[j], total_two_sum])
+
+
 
 
 
