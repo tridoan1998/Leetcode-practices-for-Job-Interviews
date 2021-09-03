@@ -165,7 +165,185 @@ def threesum(self, nums):
 			if total_two_sum in nums:
 				result.append([nums[i], nums[j], total_two_sum])
 
+"""
+Input: arr = [2,1,4,7,3,2,5]
+                        ^.      ^
+run one pointer untilarr[i] < arr[i+1]  => mountain => create two pointers 
+1. one mountain 
+distance = 0
+base is i 
+peak = False
+keep claming => if arr[i+1] > arr[i] => distance += 1 
+reach the peak => if arr[i+1] <= arr[i]=> distance += 1 => claim down => peak == True 
+reach the bottom => if arr[i+1] >= arr[i] => finaldistance = max(distance, finaldisance), peak = False 
+2. another mountain inside it
+if peak is True:
+	if arr[i+1] > arr[i] => base = i, distance = 1
+	
 
+if arr[i] < arr[i+1] => mountain
+left, right
+if arr[left] < arr[left+1] => yes
+if arr[right] < arr[right-1] => yes
+if arr[right] > arr[right-1] => continue increaing right to check the length of the mountain 
+
+
+egde case: array length less than 3 => return False, all array same length => Return False => 
+technique use: use two pointer to keep track of when we see the mountain, there could be another mountain after the valley, we keep the distance of the previous one, and check which ever mountain is higher
+variable use: two pointer,
+data structure: for loop, no new array created
+time complexity: O(N)
+space complexity: O(1)
+
+def sol(arr):
+	if len(arr) < 3:
+		return False	
+		
+		
+Input: nums = [3,-1,0,2], k = 3
+Output: 6
+Explanation: Choose indices (1, 2, 2) and nums becomes [3,1,0,2].
+
+#minheap
+find parent index =  len(arr)//2, 
+if parent > value:
+	swap(parent, value)
+recuesive calling the function again passing (arr, currIndex, value):
+base case: when parent < value: return 
+def heapify(self, arr, currIndex(the length of the array because we adding value to the end), value):
+	
+	
+		
+"""
+
+
+def bst(arrs, left, right, finalarea):
+	if left == right:
+		return finalarea
+	else:
+		minvalue = min(arrs)
+		midindex = max(arrs.indexof(minvalue))
+		maxarea = minvalue * (right - left + 1)
+		finalarea = max(maxarea, finalarea)
+
+		self.bst(arrs, left, midindex - 1, finalarea)
+		self.bst(arrs, midindex + 1, right, finalarea)
+	return max(finalarea, maxarea)
+
+
+def findarea(arrs):
+	# edge cases:
+	if len(arrs) <= 1:
+		return -1
+	left, right = 0, len(arrs)
+	finalarea = 0
+	self.bst(arrs, left, right, finalarea)
+
+"""
+word: abc  char => value 
+	  012  index  => key
+""""
+def permutation_using_hashmap(word, text):
+	hm = {}
+	for i in range(len(word)):
+		hm[word[i]] = i
+	left, right = 0, len(word)
+	while right <= len(text):
+
+		def permutation(self, word, text):
+			if len(word) == 1 and word in text:
+				return word
+			else:
+				word.sort()
+				left, right = 0, len(word)
+				while right <= len(text):
+					window = text[left:right]
+					window_clone = window
+					window.sort()
+					if window is in word:
+						result.append(window_clone)
+					left += 1
+					right += 1
+
+"""
+use stack, recursive 
+base case: visited all node, reach the end
+
+"""
+def depth_first_search(dictionary, boggle):
+	row = len(boggle)
+	column = len(boggle[0])
+	result = []
+	dicindex= 0
+	for c in range(column):
+		for r in range(row):
+			for index in range(len(dictionary)):
+				if boggle[c][r] in dictionary[index]:
+					dfs(boggle, c, r, dictionary[index], dicindex, result)
+
+def dfs(boggle, c, r, dictionary, dicindex , result):
+	if c < 0 or r < 0 or c > len(boggle[0]) or r > len(boggle) or boggle[c][r].isVisited():
+		return
+	if dicindex == len(dictionary):
+		result.append(dictionary)
+	else:
+		return dfs(boggle,c+1, r, dictionary, dicindex+1, result)
+		return dfs(boggle,c-1, r, dictionary, dicindex+1, result)
+		return dfs(boggle,c, r+1, dictionary, dicindex+1, result)
+		return dfs(boggle,c, r-1, dictionary, dicindex+1, result)
+
+
+
+#Input  : {“geeksforgeeks”, “geeks”, “geek”, “geezer”}
+"""
+technique: 
+data structure:
+time:
+space: 
+"""
+def lcp(str):
+	if len(str) <= 1:
+		return str
+	else:
+		result = ""
+		temp =""
+		for i in range(len(str)-1):
+			if len(temp) != len(result):
+				result = temp
+			for j in range(len(str[i])):
+				while str[i][j] ==str[i+1][j]:
+					temp += str[i][j]
+"""
+technique: divie and conqert, recurisve
+time: O(2^N)
+space: O(1)
+base case: when string break down to only two variables
+variable needed: index of left, right, and mid
+
+
+"""
+def lcp_divide_and_conquert(str, left, right):
+	#divide step
+	if left < right:
+		mid = (left + (right-left))//2
+		lcp_divide_and_conquert(str, left, mid-1)
+		lcp_divide_and_conquert(str, mid+1, right)
+	return conquer(str, left, right)
+
+
+def conquer(str, left, right):
+	str[left].sort()
+	str[right].sort()
+	index = 0
+	result = ""
+	while str[left][index] == str[right][index]:
+		result += str[left][index]
+	return result
+
+
+def quicksort(arr):
+	pivot = len(arr) -1
+	
 
 
 
