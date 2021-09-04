@@ -343,7 +343,154 @@ def conquer(str, left, right):
 
 def quicksort(arr):
 	pivot = len(arr) -1
-	
+
+
+def hollow_pyramid_triangle_pattern(N):
+	for i in range(N):
+		for j in range(N):
+			if i == 0 and j == N/2:
+				print("#", end = "")
+			print(" ", end = "")
+			if i == N:
+				print("#", end = "")
+
+def array_rotation(arr, d):
+	n = len(arr)
+	#use temp array
+	temp_arr = [0 ] * n
+	while d < n:
+		temp_arr[d].append(arr[d])
+		d+= 1
+	index = 0
+	for i in range(d, n):
+		temp_arr[d] = arr[index]
+		index += 1
+
+def is_palindrome(str):
+	if len(str) == 1:
+		return True
+	else:
+		left, right = 0, len(str)-1
+		while left < right:
+			if str[left] != str[right]:
+				return False
+			left += 1
+			right -= 1
+		return True
+def longest_palindrome(arrlist):
+	maxlength = 0
+	for arr in arrlist:
+		if is_palindrome(arr):
+			maxlength = max(maxlength, len(arr))
+	return maxlength
+
+def decimal_to_binary(decimal):
+
+	quotient = decimal
+	remainder = 0
+	binary = 0
+	while quotient > 1:
+		quotient = decimal / 2
+		remainder = decimal % 2
+		if remainder == 1:
+			binary += 1
+			binary *= 10
+		decimal /= 2
+
+def gcd(num1, num2):
+	gcd_list = []
+	if num2 < num1:
+		num1, num2 = num2, num1
+	for i in range(1,num1+1):
+		if num1 % i == 0 and num2 % i == 0:
+			gcd_list.append(i)
+	return gcd_list
+
+"""
+0011001
+
+"""
+def binary_to_decimal(binary):
+	if binary == 0:
+		return -1
+	else:
+		binary = str(binary)
+		decimal = 0
+		index = len(binary)-1
+		power = 1
+		while index >= 0:
+			if binary[index] == 1:
+				decimal += power
+			power *= 2
+			index -= 1
+
+
+class ValidExpression:
+	# Checks if the given expression is valid
+	def isExprValid(self, expr):
+		number = eval(expr)
+		print(number)
+
+		"""
+        We traverse the string from left to right and maintain 2 stacks
+         – one for numbers and the other one for operators and 
+         parentheses.
+          When we encounter a number we push it to the 
+         integer stack and similarly, in case of an operator or an
+        open bracket, we push it to the character stack. 
+
+        When we encounter a closed bracket, we remove characters from 
+        the character stack until we encounter the corresponding 
+        open parentheses. Also, when we get an operator we remove 
+        2 integers from the integer stack. In case we are not able
+        to perform any of the operations, we return false, thus 
+        considering the expression invalid. 
+        """
+
+
+"""        stack_number, stack_operate_parenttheless = [], []
+        operator = ["+", "-", "*"]
+        for i in range(len(expr)-2):
+            if expr[i] is " ":
+                continue
+            while expr[i].isdigit():
+                stack_number.append(expr[i])
+                i += 1
+            if expr[i] is operator or expr[i] == "(":
+                stack_operate_parenttheless.append(expr[i])
+            if expr[i] == ")":
+                for char in stack_operate_parenttheless:
+                    if char == "(":
+                        break
+                    if char is operator:
+                        stack_number.pop()
+                        stack_number.pop()
+                    stack_operate_parenttheless.pop()
+            else:
+                return False
+        if len(stack_number) != 0 and len(stack_operate_parenttheless)!= 0:
+            return False
+        return True"""
+
+
+def main():
+	# Take Input
+	expr = input()
+
+	# Print result
+	result = "yes" if ValidExpression().isExprValid(expr) else "no"
+	print(f"{result}: {expr}")
+
+
+# Call the main method
+main()
+
+
+
+
+
+
+
 
 
 
