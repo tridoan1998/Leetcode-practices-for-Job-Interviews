@@ -488,10 +488,28 @@ main()
 
 
 
+def highest_common_factor(num1, num2):
+	if num1 <=0 or num2 <= 0:
+		return None
+	lower_number = min(num1, num2)
+	hcf = 1
+	for i in range(1,lower_number):
+		if num1%i == 0 and num2 % i == 0:
+			hcf = max(hcf, i)
+	return hcf
 
-
-
-
+def fib_triangle(n):
+	if n <= 0:
+		return None
+	else:
+		num1 = 1
+		num2 = 1
+		print(num1)
+		print(num1, num2)
+		for i in range(n):
+			for j in range(i+1):
+				num1 = num2
+				num2 = num1 + num2
 
 
 
