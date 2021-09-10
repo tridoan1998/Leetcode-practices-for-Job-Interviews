@@ -511,6 +511,37 @@ def fib_triangle(n):
 				num1 = num2
 				num2 = num1 + num2
 
+def decimal_to_binary(number):
+	if number <= 1:
+		return 0
+	else:
+		binary = ""
+		quotient = 0
+		while number >= 1:
+			quotient = number % 2
+			number /= 2
+			if quotient != 0:
+				binary.append(1)
+			binary.append(0)
+		binary.reversed()
+		return binary
+
+def reverse_each_word_in_string(string):
+	if len(string) == 1:
+		return string
+	else:
+		arr = string.split(" ")
+		for eachstring in arr:
+			eachstring.reversed()
+		string = ""
+		for i in range(len(arr)):
+			string += arr[i]
+		return string
+
+
+
+
+
 
 
 
