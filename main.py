@@ -540,8 +540,6 @@ def reverse_each_word_in_string(string):
 
 
 
-
-
-
+def sell_stocK():
 
 
