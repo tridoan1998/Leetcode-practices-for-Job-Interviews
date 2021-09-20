@@ -541,5 +541,72 @@ def reverse_each_word_in_string(string):
 
 
 def sell_stocK():
+	def sell_stock(stocks):
+		lowest, highest = stocks[0], 0
+		for i in range(1, len(stocks)):
+			lowest = min(lowest, stocks[i])
+			if stocks[i] - lowest > highest:
+				highest = stocks[i] - lowest
+		return highest
+
+	import heapq
+
+	def minAvailableDuration(self, slots1: List[List[int]], slots2: List[List[int]], duration: int) -> List[int]:
+
+		"""
+        sort the list by start time, make the check easier. Think logicly start time need to be sorted because one need to finish first before another can start
+        use two pointers technique:
+
+vilsulization:
+        slots1 = [[10,50],[60,120],[140,210]]
+                    ^  ^
+
+        slots1[pointer1][0]
+        slots2[pointer1][1]
+        slots2 = [[0,15],[60,70]]
+                   ^. ^
+        slots2[pointer2][0]
+        slots2[pointer2][1]
+        take the max(slots1[poiner1][0], slots2[pointer2][0])
+        take the min(slots1[poiner1][1], slots2[pointer2][1])
+        if curr[1] - curr[0] <= duration => return True
+        else:
+            if slots1[pointer1][1] < slots2[pointer2][1]:
+                pointer1 += 1
+            else:
+                pointer2 += 1
+
+        [10, 15]
+        duration = 8
+        """
+
+	def subarraySum(self, nums: List[int], k: int) -> int:
+		"""
+
+        nums = [1, ,1 ,1]
+
+        k = 2
+
+
+        thought process:
+        use two pointer technique:
+        left, right
+        if nums[left:right] sum is k => counter += 1
+        left += 1
+        right += 1
+        sort? => take O(NlogN ), but better sor searching because we can set our loop to stop at nums[index] == k
+
+
+        technique used:
+        variable used: curr_sum, inde
+        data structure used:
+        time complexity:
+        space complexity:
+        """
+		left, right = 0, 0
+
+
+
+
 
 
