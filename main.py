@@ -551,7 +551,7 @@ def sell_stocK():
 
 	import heapq
 
-	def minAvailableDuration(self, slots1: List[List[int]], slots2: List[List[int]], duration: int) -> List[int]:
+def minAvailableDuration(self, slots1: List[List[int]], slots2: List[List[int]], duration: int) -> List[int]:
 
 		"""
         sort the list by start time, make the check easier. Think logicly start time need to be sorted because one need to finish first before another can start
@@ -580,7 +580,7 @@ vilsulization:
         duration = 8
         """
 
-	def subarraySum(self, nums: List[int], k: int) -> int:
+def subarraySum(self, nums: List[int], k: int) -> int:
 		"""
 
         nums = [1, ,1 ,1]
@@ -606,7 +606,45 @@ vilsulization:
 		left, right = 0, 0
 
 
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+	def hasCycle(self, head: ListNode) -> bool:
+		"""
+        two pointer: fast and slow
+
+        hm {}
+        """
+		arr = set()
+		while head is not None:
+			if head not in arr:
+				arr.append(arr)
+			if head in ar:
+				return True
+			head = head.next
+		return False
 
 
+import heapq
 
+
+class KthLargest:
+
+	def __init__(self, k: int, nums: List[int]):
+		self.heap = nums
+		heapq.heapify(self.heap)
+		self.k = k
+
+	def add(self, val: int) -> int:
+		self.nums.append(val)
+		self.nums = heapq.heapify(self.nums)
+		for i in range(self.k):
+
+# Your KthLargest object will be instantiated and called as such:
+# obj = KthLargest(k, nums)
+# param_1 = obj.add(val)
 
